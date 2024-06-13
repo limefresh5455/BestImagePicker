@@ -6,7 +6,7 @@ import { forgotPasswordService } from '../Service/Service';
  
 const { width, height } = Dimensions.get('window');
 
-const ForgotPassword = () => {
+const ForgotPassword = ({navigation}) => {
   const [email, setEmail] = useState(''); 
   const [errors, setErrors] = useState({});
 
@@ -53,9 +53,14 @@ const ForgotPassword = () => {
       </View>
       {errors.email && <Text style={styles.errorText}>{errors.email}</Text>}
           <TouchableOpacity style={styles.signInButton} onPress={handleSubmitForgotPassowrd}>
-            <Text style={styles.signInButtonText}>Send</Text>
+            <Text style={styles.signInButtonText}>Continue</Text>
           </TouchableOpacity>
-       
+          <View style={styles.signInTextContainer}>
+            <Text style={styles.orSignInBack}>Back to the ? </Text>
+            <TouchableOpacity onPress={() => navigation.navigate('login')}>
+              <Text style={styles.orSignInBackText}>Sign In</Text>
+            </TouchableOpacity>
+          </View>  
         </View>
       </ScrollView>
     </View>
@@ -80,65 +85,68 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom:50,
   },
   imageContainer: {
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'center',
-    marginBottom:20
+    marginTop: height * 0.01,
+    marginBottom: height * 0.06,
   },
-
   sampleImage: {
     width: width * 0.9,
     height: height * 0.3,
     resizeMode: 'cover',
     borderRadius: 20,
-    marginTop:20,
-    marginBottom:50
   },
 
   signInText: {  
-    fontSize: 25,
+    fontSize: width * 0.07,
     fontWeight: 'bold',
     color: '#fff',
-    marginTop:18,
-    marginBottom:8,
+    marginTop: height * 0.018,
+    marginBottom: height * 0.008,
     alignSelf: 'flex-start', 
   },
  
   formContainer: {
     width: width * 0.9,
     alignItems: 'center',
-     
-    marginTop:10,
+    marginBottom: height *0.045,
   },
+
   inputContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginTop:30,
+    marginVertical: height * 0.01,
     borderRadius: 10, 
     borderWidth: 2,   
     borderColor: '#fff',  
     width: '100%',
   },
   icon: {
-    paddingHorizontal: 10,
+    paddingHorizontal: width * 0.02,
   },
   errorBorder: {
     borderColor: 'red',
   },
   input: {
     flex: 1,
-    height: 40,
+    height: height * 0.05,
     color: '#fff',
-    paddingHorizontal: 10,
-
+    paddingHorizontal: width * 0.02,
   },
   eyeIcon: {
-    paddingHorizontal: 10,
+    paddingHorizontal: width * 0.02,
   },
- 
+  forgotPasswordContainer: { // New container for "Forget password?" text
+    alignSelf: 'flex-end',
+  },
+  forgotPassword: {
+    color: '#fff',
+    marginBottom: height * 0.01,
+    marginRight: width * 0.01,
+  },
  
   signInButton: {
     backgroundColor: '#000',
@@ -146,43 +154,55 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: '100%',
     height: height * 0.07,
-    // height: 50,
     borderRadius: 30,
-    marginVertical: 30,
-    marginBottom:60,
+    marginVertical: height * 0.02,
   },
   signInButtonText: {
     color: '#fff',
-    fontSize: 13,
+    fontSize: width * 0.04,
     fontWeight: 'bold',
-    fontFamily:"Gill Sans"
+    fontFamily: "Gill Sans",
   },
   errorText: {
     color: 'red',
     alignSelf: 'flex-start',
-    marginLeft: 10,
-    marginTop: 2,
+    marginLeft: width * 0.02,
+    marginTop: -8,
   },
-  orSignInText: {
+  signInTextContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: height * 0.02,
+    marginTop: height * 0.18,
+  },
+  orSignInBack: {
     color: '#fff',
-    marginTop:70,
-    marginBottom: 10,
+    marginBottom: height * 0.01,
     fontFamily: "Gill Sans",
   },
   socialButtonsContainer: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    gap:17
+    gap:17,
+    marginVertical: height * 0.015,
   },
   socialButton: {
-    width: 40,
-    height: 40,
+    width: width * 0.1,
+    height: width * 0.1,
     borderRadius: 13,
     backgroundColor: '#000',
     justifyContent: 'center',
     alignItems: 'center',
-    marginVertical:15
+    marginVertical: height * 0.010,
   },
+  orSignInBackText:{
+    fontSize: width * 0.04,
+    color: '#fff',
+    fontWeight:"bold",
+    marginBottom: height * 0.01,
+    fontFamily: "Gill Sans",
+  }
+ 
 });
 
 export default ForgotPassword

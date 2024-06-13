@@ -23,3 +23,8 @@ export const resetPasswordService= async(userDetails,id,token)=>{
     const res = await axios.post(`${API_URL}/resetPassword/${id}/${token}`,userDetails)
     return res;
 }
+
+export const getEmailVerifyService = async (token) => {
+    const res = await axios.get(`${API_URL}/verifyEmail/${token}`)
+    return res;
+}

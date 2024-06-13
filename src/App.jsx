@@ -11,6 +11,7 @@ import ForgotPassword from './components/Auth/ForgotPassword/ForgotPassword';
 import ResetPassword from './components/Auth/ResetPassword/ResetPassword';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 import { AuthProvider } from './components/AuthContext/AuthContext';
+import VerifyEmail from './components/Auth/VerifyEmail/VerifyEmail';
  
 const Stack = createStackNavigator();
  
@@ -24,6 +25,7 @@ const App = () => {
                 {!user ? (
                     <>
                         <Stack.Screen name="welcomePage" component={WelcomePage} options={{ headerShown: false }} />
+                        <Stack.Screen name="verifyEmail" component={VerifyEmail} options={{ headerShown: false }} />
                         <Stack.Screen name="register" component={Register} options={{ headerShown: false }} />
                         <Stack.Screen name="login" component={Login} options={{ headerShown: false }} />
                         <Stack.Screen name="forgotPassword" component={ForgotPassword} options={{ headerShown: false }} />
