@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "101595671329",
+    "project_id": "bestimagepicker",
+    "storage_bucket": "bestimagepicker.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:101595671329:android:7f47d82436153276e0ac60",
+        "android_client_info": {
+          "package_name": "reactnative.bestimagepicker.com"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZIUCy-wlqfaoQ-RqFDCIRNPA9TOEdOAc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
